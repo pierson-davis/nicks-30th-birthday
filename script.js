@@ -60,7 +60,7 @@ class BirthdayWebsite {
             }
         ];
         
-        this.birthdayDate = new Date('2025-10-18T18:00:00-05:00'); // October 18th, 2025 at 6pm EST
+        this.birthdayDate = new Date('2025-10-18T18:00:00-04:00'); // October 18th, 2025 at 6pm EST
         
         this.init();
     }
