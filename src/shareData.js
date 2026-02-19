@@ -16,6 +16,11 @@ function clamp(text, max = MAX_TEXT_LENGTH) {
   return text.length > max ? `${text.slice(0, max - 1)}...` : text;
 }
 
+function makeFallbackImageURL(baseUrl, token) {
+  const encodedToken = encodeURIComponent(token);
+  return `${baseUrl}/images/saveapp-og-default.png?v=2&t=${encodedToken}`;
+}
+
 async function fetchFromEndpoint(token) {
   const endpointBase = process.env.SHARE_DATA_ENDPOINT;
   if (!endpointBase) return null;
@@ -44,11 +49,10 @@ async function fetchFromEndpoint(token) {
 }
 
 function fallbackData(token, baseUrl) {
-  const short = token.slice(0, 8).toUpperCase();
   return {
     title: `Shared from saveApp`,
-    description: `Open this shared save in saveApp. Token: ${short}`,
-    imageUrl: `${baseUrl}/images/IMG_0825.jpeg`
+    description: "Open this shared save in saveApp.",
+    imageUrl: makeFallbackImageURL(baseUrl, token)
   };
 }
 
@@ -58,7 +62,7 @@ export async function resolveShareData({ token, baseUrl }) {
     return {
       title: fromEndpoint.title ?? "Shared from saveApp",
       description: fromEndpoint.description ?? "Open this shared save in saveApp.",
-      imageUrl: fromEndpoint.imageUrl ?? `${baseUrl}/images/IMG_0825.jpeg`
+      imageUrl: fromEndpoint.imageUrl ?? makeFallbackImageURL(baseUrl, token)
     };
   }
 

@@ -54,6 +54,10 @@ function renderShareHtml({ token, canonicalUrl, deepLink, title, description, im
   <meta property="og:title" content="${safeTitle}" />
   <meta property="og:description" content="${safeDescription}" />
   <meta property="og:image" content="${safeImageUrl}" />
+  <meta property="og:image:secure_url" content="${safeImageUrl}" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:url" content="${safeCanonicalUrl}" />
 
   <meta name="twitter:card" content="summary_large_image" />
