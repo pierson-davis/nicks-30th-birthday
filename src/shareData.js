@@ -18,7 +18,7 @@ function clamp(text, max = MAX_TEXT_LENGTH) {
 
 function makeFallbackImageURL(baseUrl, token) {
   const encodedToken = encodeURIComponent(token);
-  return `${baseUrl}/images/saveapp-og-default.png?v=2&t=${encodedToken}`;
+  return `${baseUrl}/images/saveapp-og-default.png?v=3&t=${encodedToken}`;
 }
 
 async function fetchFromEndpoint(token) {
