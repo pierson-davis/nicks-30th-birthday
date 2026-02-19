@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: saveapp-share-site
+    env: node
+    plan: free
+    autoDeploy: true
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PUBLIC_BASE_URL
+        value: https://nicks30.net
+      - key: IOS_APP_SCHEME
+        value: saveapp
+      - key: APP_TEAM_ID
+        value: KU4HZ94MVK
+      - key: APP_BUNDLE_ID
+        value: com.pierson.saveApp
